@@ -18,7 +18,7 @@ export default function TabelaClientes(props) {
         props.exibirFormulario(true);
     }
 
-    
+
     return (
         <Container>
             <Button type="button" onClick={() => {
@@ -71,7 +71,7 @@ export default function TabelaClientes(props) {
                                     </svg>
                                 </Button> {' '}
 
-                                    <Button variant="warning">
+                                    <Button onClick={()=>editarCliente(cliente)} variant="warning">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             width="16"
                                             height="16"

@@ -6,6 +6,16 @@ export default function FormCadCliente(props) {
     const [cliente, setCliente] = useState(estadoInicialCliente);
 
     const [formValidado, setFormValidado] = useState(0);
+    const clientevazio={
+        cpf: '',
+        nome: '',
+        endereco: '',
+        bairro: '',
+        numero: '',
+        cidade: '',
+        uf: 'SP',
+        cep: ''
+    }
 
     //handleChange, onChange
     function manipularMudancas(e) {//e = evento
@@ -32,16 +42,7 @@ export default function FormCadCliente(props) {
                 props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
                 //Espalha o clientes filtrando o selecionado
                 props.setModoEdicao(false);
-                props.setClienteParaEdicao({
-                    cpf: '',
-                    nome: '',
-                    endereco: '',
-                    bairro: '',
-                    numero: '',
-                    cidade: '',
-                    uf: 'AC',
-                    cep: ''
-                });
+                props.setClienteParaEdicao(clientevazio);
             }
 
             //OU
@@ -52,7 +53,7 @@ export default function FormCadCliente(props) {
             */
 
             //Limpar os campos do formulario//Em outras palavras, reiniciar o estado do componente
-            setCliente(estadoInicialCliente);
+            setCliente(estadoInicialCliente); //ou setCliente(clientevazio)        ou sair da tela de formulario
             setFormValidado(false);
         }
         else {
