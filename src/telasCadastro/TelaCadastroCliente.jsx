@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function TelaCadastroCliente(props) {
     const [exibirFormulario, setExibirFormulario] = useState(false);
     const [listaClientes, setListaClientes] = useState([]);
-    const [clienteparaEdicao, setClienteParaEdicao] = useState({
+    const [clienteParaEdicao, setClienteParaEdicao] = useState({
         cpf: '',
         nome: '',
         endereco: '',
@@ -31,7 +31,7 @@ export default function TelaCadastroCliente(props) {
                     exibirFormulario ? <FormCadCliente listaClientes={listaClientes}
                         exibirFormulario={setExibirFormulario}
                         setListaClientes={setListaClientes}
-                        clienteparaEdicao={clienteparaEdicao}
+                        clienteParaEdicao={clienteParaEdicao}
                         setClienteParaEdicao={setClienteParaEdicao}
                         modoEdicao={modoEdicao}
                         setModoEdicao={setModoEdicao}
@@ -40,7 +40,7 @@ export default function TelaCadastroCliente(props) {
                         <TabelaClientes listaClientes={listaClientes}
                             exibirFormulario={setExibirFormulario}
                             setListaClientes={setListaClientes}
-                            clienteparaEdicao={clienteparaEdicao}
+                            clienteParaEdicao={clienteParaEdicao}
                             setClienteParaEdicao={setClienteParaEdicao}
                             modoEdicao={modoEdicao}
                             setModoEdicao={setModoEdicao}

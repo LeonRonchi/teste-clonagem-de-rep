@@ -5,7 +5,6 @@ import TelaCadastroProduto from './telasCadastro/TelaCadastroProduto.jsx';
 import TelaCadastroFornecedor from './telasCadastro/TelaCadastroFornecedor.jsx'
 import TelaMenu from './telasCadastro/TelaMenu.jsx';
 import Tela404 from './telasCadastro/Tela404.jsx';
-//import Pagina from './templates/Pagina.jsx';
 function App() {
   return (
     <div className="App">
@@ -14,13 +13,13 @@ function App() {
           {
             //Os caminhos(path) devem ser organizados do mais específico para o mais geral
           }
-          <Route path='/clientes' element={<TelaCadastroCliente/>} />
-          <Route path='/produtos' element={<TelaCadastroProduto/>} />
-          <Route path='/fornecedores' element={<TelaCadastroFornecedor/>} />
-          <Route path='/categorias' element={<TelaCadastroCategoria/>} />
-          <Route path='/' element={<TelaMenu/>}/>
+          <Route path='/clientes' element={<TelaCadastroCliente />} />
+          <Route path='/produtos' element={<TelaCadastroProduto />} />
+          <Route path='/fornecedores' element={<TelaCadastroFornecedor />} />
+          <Route path='/categorias' element={<TelaCadastroCategoria />} />
+          <Route path='/' element={<TelaMenu />} />
 
-          <Route path='*' component={Tela404} />
+          <Route path='*' element={<Tela404 />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -28,12 +27,3 @@ function App() {
 }
 
 export default App;
-/*
-<TelaCadastroFornecedor/>
-<TelaCadastroProduto/>
-<FormCadFornecedor/>
-<FormCadCliente/>
-<FormCadProduto/>
-<TelaCadastroCategoria/>
-<FormCadCategoria/>
-*/

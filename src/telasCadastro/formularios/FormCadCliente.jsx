@@ -2,20 +2,20 @@ import { Container, Form, Row, Col, FloatingLabel, Button } from "react-bootstra
 import { useState } from "react";
 export default function FormCadCliente(props) {
     //Os atributos deste objeto devem estar associados aos inputs do formulario
-    const estadoInicialCliente = props.clienteparaEdicao;
-    const [cliente, setCliente] = useState(estadoInicialCliente);
-
-    const [formValidado, setFormValidado] = useState(0);
-    const clientevazio={
+    const clienteVazio = {
         cpf: '',
         nome: '',
         endereco: '',
         bairro: '',
         numero: '',
         cidade: '',
-        uf: 'SP',
+        uf: 'AC',
         cep: ''
-    }
+    };
+    const estadoInicialCliente = props.clienteParaEdicao;
+    const [cliente, setCliente] = useState(estadoInicialCliente);
+    const [formValidado, setFormValidado] = useState(false);
+    //Para depurar é necessário instalar a extensão react dev tools do chrome, em F12 aparecerá novas guias "Components", aqui é onde podemos efetivamente depurar o código, selecionando o componente e clicando em "<>"
 
     //handleChange, onChange
     function manipularMudancas(e) {//e = evento
@@ -42,7 +42,7 @@ export default function FormCadCliente(props) {
                 props.setListaClientes([...props.listaClientes.filter((itemCliente) => itemCliente.cpf !== cliente.cpf), cliente]);
                 //Espalha o clientes filtrando o selecionado
                 props.setModoEdicao(false);
-                props.setClienteParaEdicao(clientevazio);
+                props.setClienteParaEdicao(clienteVazio);
             }
 
             //OU
@@ -53,7 +53,7 @@ export default function FormCadCliente(props) {
             */
 
             //Limpar os campos do formulario//Em outras palavras, reiniciar o estado do componente
-            setCliente(estadoInicialCliente); //ou setCliente(clientevazio)        ou sair da tela de formulario
+            setCliente(clienteVazio);//Se manter a tela de formulario aberta//Ou sair da tela de formulário
             setFormValidado(false);
         }
         else {
@@ -253,10 +253,8 @@ export default function FormCadCliente(props) {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={6} offset={5}>
-                        <Button type="submit" variant={"primary"} onClick={() => {
-
-                        }}>{props.modoEdicao ? "Alterar" : "Cadastrar"}</Button>
+                    <Col md={6} offset={5} className="d-flex justify-content-end">
+                        <Button type="submit" variant={"primary"} >{props.modoEdicao ? "Alterar" : "Cadastrar"}</Button>
                     </Col>
 
                     <Col md={6} offset={5}>
